@@ -1,0 +1,10 @@
+package rules
+
+import tecvest.payment.Payment;
+
+ rule "monthly limit"
+    when
+        $payment : Payment( monthlyTotalAmount <= 1000000)
+    then
+        $payment.setMonthlyLimitApproved(true);
+  end
